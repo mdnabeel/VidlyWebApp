@@ -42,9 +42,12 @@ namespace VidlyWebApp.Controllers
 
 
 [HttpPost]
-        public ActionResult Create(NewCustomerViewModel viewModel )
+        public ActionResult Create(Customers customer )  //here if we change it's type to customer MVC framework is smart enough 
+            //to bind this object to form data as all the key in form data is prefixed with customer. 
         {
-            return View();
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
         }
 
 
