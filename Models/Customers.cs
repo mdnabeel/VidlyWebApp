@@ -9,12 +9,16 @@ namespace VidlyWebApp.Models
     public class Customers
     {
         public int ID { get; set; }
+
         [Required]
         [StringLength(255)]
         public String CustomerName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name ="Memebership Type")]
         public byte MembershipTypeId { get; set; }
+
         public DateTime? BirthDate { get; set; }
     }
 }
