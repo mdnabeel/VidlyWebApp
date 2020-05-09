@@ -41,6 +41,15 @@ namespace VidlyWebApp.Controllers
 
 
 
+[HttpPost]
+        public ActionResult Create(NewCustomerViewModel viewModel )
+        {
+            return View();
+        }
+
+
+
+
         // GET: Customers
         public ViewResult Index()
         {
