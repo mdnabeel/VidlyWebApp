@@ -32,11 +32,11 @@ namespace VidlyWebApp.Controllers
         {
             var membershipType = _context.MembershipTypes.ToList();
 
-            var viewmodel = new NewCustomerViewModel
+            var viewmodel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipType
         };
-            return View(viewmodel);
+            return View("CustomerForm" ,viewmodel);
         }
 
 
@@ -73,6 +73,25 @@ namespace VidlyWebApp.Controllers
             return View(customer);
         }
 
-        
+
+
+
+        public ActionResult Edit(int ID)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.ID == ID);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewmodel = new CustomerFormViewModel
+            {
+                Customers = customer,
+                MembershipTypes =_context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm",viewmodel); //Without this view name "New" mvc will look for for a view called Edit.
+        }
+
+
+
     }
 }
