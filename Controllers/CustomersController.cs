@@ -8,6 +8,7 @@ using VidlyWebApp.Models;
 
 namespace VidlyWebApp.Controllers
 {
+    [System.Runtime.InteropServices.Guid("D43DB447-6F98-49C7-B1FA-3AAA70FE8427")]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -22,6 +23,16 @@ namespace VidlyWebApp.Controllers
         {
             _context.Dispose();
         }
+
+
+
+        public ActionResult New()
+        {
+            return View();
+        }
+
+
+
         // GET: Customers
         public ViewResult Index()
         {
