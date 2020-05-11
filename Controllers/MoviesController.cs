@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyWebApp.Models;
+using VidlyWebApp.ViewModels;
+using System.Data.Entity.Validation;
 
 namespace VidlyWebApp.Controllers
 {
@@ -21,6 +23,20 @@ namespace VidlyWebApp.Controllers
         {
            _context.Dispose();
         }
+
+
+
+
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewmodel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+            return View("MovieForm", viewmodel);
+        }
+
 
 
         // GET: Movies
@@ -40,5 +56,34 @@ namespace VidlyWebApp.Controllers
 
             return View(movie);
         }
+
+
+
+
+        public ActionResult Save(Movies movie)
+        {
+            if(movie.Id==0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id==movie.Id);
+                movieInDb.MovieName = movie.MovieName;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.ReleasedDate = movie.ReleasedDate;
+            }
+
+
+                _context.SaveChanges();
+          
+
+            return RedirectToAction("Index", "Movies");
+        }
+
+
     }
 }
