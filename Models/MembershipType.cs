@@ -13,7 +13,7 @@ namespace VidlyWebApp.Models
         public short SignUpFee { get; set; }
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
-       [Required]
+        [Required]
         public string Name { get; set; }
     }
 }
