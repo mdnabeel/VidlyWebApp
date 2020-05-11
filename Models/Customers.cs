@@ -11,7 +11,8 @@ namespace VidlyWebApp.Models
     {
         public int ID { get; set; }
 
-       [StringLength(255)]
+        [Display(Name = "Customer Name")]
+        [StringLength(255)]
         public String CustomerName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
@@ -20,6 +21,7 @@ namespace VidlyWebApp.Models
         [Required]
         public byte MembershipTypeId { get; set; }
 
+        [Display(Name = "Date Of Birth")]
         public DateTime? BirthDate { get; set; }
     }
 }
