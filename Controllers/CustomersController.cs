@@ -28,7 +28,8 @@ namespace VidlyWebApp.Controllers
 
 
         public ActionResult New()
-        {
+        { 
+
             var membershipType = _context.MembershipTypes.ToList();
 
             var viewmodel = new CustomerFormViewModel
@@ -44,6 +45,20 @@ namespace VidlyWebApp.Controllers
         public ActionResult Save(Customers customer )  //here if we change it's type to customer MVC framework is smart enough 
             //to bind this object to form data as all the key in form data is prefixed with customer. 
         {
+
+       if(!ModelState.IsValid)
+            {
+                var viewmodel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+
+                };
+
+                return View("CustomerForm", viewmodel);
+            }
+
+
             if (customer.ID == 0)
             {
                 _context.Customers.Add(customer);

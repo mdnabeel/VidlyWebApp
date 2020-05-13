@@ -13,6 +13,7 @@ namespace VidlyWebApp.Models
 
         [Display(Name = "Customer Name")]
         [StringLength(255)]
+        [Required]
         public String CustomerName { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
