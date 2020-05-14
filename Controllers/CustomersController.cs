@@ -34,6 +34,7 @@ namespace VidlyWebApp.Controllers
 
             var viewmodel = new CustomerFormViewModel
             {
+                Customer=new Customers(),
                 MembershipTypes = membershipType
         };
             return View("CustomerForm" ,viewmodel);

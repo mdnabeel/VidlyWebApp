@@ -11,7 +11,10 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+    @Html.ValidationSummary()
 
+   // @Html.ValidationSummary(true ,"Please enter the required fields")  //Use this overload when you want to have custom validation Summary Message
+   
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.CustomerName)
         @Html.TextBoxFor(m => m.Customer.CustomerName, new { @class = "form-control " })
