@@ -15,7 +15,13 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.CustomerName)
         @Html.TextBoxFor(m => m.Customer.CustomerName, new { @class = "form-control " })
-        @Html.ValidationMessageFor(m=>m.Customer.CustomerName)
+        @Html.ValidationMessageFor(m => m.Customer.CustomerName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control " })
+        @Html.ValidationMessageFor(m=>m.Customer.MembershipTypeId)
     </div>
 
     <div class="form-group">
@@ -24,10 +30,7 @@
     </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.MembershipTypeId)
-        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control " })
-    </div>
+
 
     <div class="checkbox">
         <label>
@@ -35,7 +38,7 @@
         </label>
     </div>
 
-    @Html.HiddenFor(m=>m.Customer.ID)
+    @Html.HiddenFor(m => m.Customer.ID)
 
     <button type="submit" class="btn btn-primary">Save</button>
 }
