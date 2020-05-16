@@ -251,6 +251,10 @@
     <Compile Include="Migrations\202005131627515_AddedRequiredFieldInCustomerName.designer.cs">
       <DependentUpon>202005131627515_AddedRequiredFieldInCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005161741307_AddDataAttonationInMovies.cs" />
+    <Compile Include="Migrations\202005161741307_AddDataAttonationInMovies.designer.cs">
+      <DependentUpon>202005161741307_AddDataAttonationInMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -401,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005131627515_AddedRequiredFieldInCustomerName.resx">
       <DependentUpon>202005131627515_AddedRequiredFieldInCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005161741307_AddDataAttonationInMovies.resx">
+      <DependentUpon>202005161741307_AddDataAttonationInMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
